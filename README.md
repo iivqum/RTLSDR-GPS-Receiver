@@ -4,7 +4,7 @@ I use custom hardware to make it work. First is the helical RHCP antenna.
 
 <p align="center"><img width="338" height="381" alt="antenna" src="https://github.com/user-attachments/assets/47dd0ebc-549d-44a5-b7f6-b796390a3fec" /></p>
 
-Second is a custom GPS LNA, which includes a filter and a GPS SAW filter I got from AliExpress. There's a second LNA closer to the SDR. Gain of each is
+Second is a custom GPS LNA, which includes a filter. I also use a GPS SAW filter I got from AliExpress. There's a second LNA closer to the SDR. Gain of each is
 around 23 dB so there are 3 filter stages in the chain and 3 gain stages (including the SDR). I run the SDR with the gain maxed out at 50 dB, resulting
 in 96 dB of total gain.
 
