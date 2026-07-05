@@ -2,8 +2,8 @@ RTLSDR GPS receiver project.
 
 I use a few of custom hardware to make it work. First is the helical RHCP antenna.
 
-<img width="2705" height="3051" alt="IMG_20260705_100652" src="https://github.com/user-attachments/assets/89557d76-d506-4dc2-8cc5-5d4a0f52d61e" />
+<img width="676" height="762" alt="antenna" src="https://github.com/user-attachments/assets/7964cd98-d361-4c90-b463-e86383f61aa7" />
 
 Second is a custom GPS LNA, which includes a filter and a GPS SAW filter I got from AliExpress,
 
-<img width="3000" height="4000" alt="IMG_20260705_100752" src="https://github.com/user-attachments/assets/b2e48462-a111-4301-b114-03985f579765" />
+<img width="750" height="1000" alt="frontend" src="https://github.com/user-attachments/assets/eec5c838-5962-4f23-9d31-e88b41eb45ce" />
