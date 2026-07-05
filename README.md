@@ -8,7 +8,7 @@ Second is a custom GPS LNA, which includes a filter and a GPS SAW filter I got f
 around 23 dB so there are 3 filter stages in the chain and 3 gain stages (including the SDR). I run the SDR with the gain maxed out at 50 dB, resulting
 in 96 dB of total gain.
 
-<img width="375" height="500" alt="frontend" src="https://github.com/user-attachments/assets/c6784f3a-d335-489c-8375-130e7d530e54" />
+<center><img width="375" height="500" alt="frontend" src="https://github.com/user-attachments/assets/c6784f3a-d335-489c-8375-130e7d530e54" /></center>
 
 Here's an example acquisition of SV11
 
