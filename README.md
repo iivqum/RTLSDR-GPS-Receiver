@@ -10,6 +10,6 @@ in 96 dB of total gain.
 
 <p align="center"><img width="375" height="500" alt="frontend" src="https://github.com/user-attachments/assets/c6784f3a-d335-489c-8375-130e7d530e54" /></p>
 
-Here's an example acquisition of SV11
+Here's an example acquisition of SV11. Generally I've found I can achieve an SNR of 8 to 15 dB indoors.
 
 <p align="center"><img width="434" height="359" alt="aq" src="https://github.com/user-attachments/assets/032471bd-c70c-4581-b82a-64d6bbdecd04" /></p>
