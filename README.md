@@ -10,4 +10,4 @@ Second is a custom GPS LNA, which includes a filter and a GPS SAW filter I got f
 
 Here's an example acquisition of SV11
 
-<img width="868" height="718" alt="aq" src="https://github.com/user-attachments/assets/01b19b1c-9d69-43c5-9369-b6c95bff1e4d" />
+<img width="434" height="359" alt="aq" src="https://github.com/user-attachments/assets/032471bd-c70c-4581-b82a-64d6bbdecd04" />
