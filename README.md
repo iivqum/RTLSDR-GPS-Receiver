@@ -1,6 +1,6 @@
 RTLSDR GPS receiver project.
 
-I use a few of custom hardware to make it work. First is the helical RHCP antenna.
+I use custom hardware to make it work. First is the helical RHCP antenna.
 
 <p align="center"><img width="338" height="381" alt="antenna" src="https://github.com/user-attachments/assets/47dd0ebc-549d-44a5-b7f6-b796390a3fec" /></p>
 
