@@ -11,6 +11,8 @@ import cacode
 import signal
 import sys
 import sampler
+import acquire
+import tracking
 
 # 1ms
 num_samples = 2048
@@ -20,12 +22,8 @@ if __name__ == '__main__':
     #cbuf = buffer.circular(204800)
     # Store 100 ms of samples
     cbuf = buffer.circular(num_bytes * 100)
-    
-    print(f"Allocated {cbuf.get_size() / 1e3} Kb")
-    
-    byte_buf2 = numpy.empty(num_bytes * 10, dtype = numpy.dtype('B'))
-    
-    proc = mp.Process(target = sampler.main, args = (
+
+    sample_proc = mp.Process(target = sampler.main, args = (
         cbuf, # Circular buffer reference
         2.048e6, # Sample frequency
         1575.42e6, # Center frequency
@@ -34,30 +32,30 @@ if __name__ == '__main__':
         2048 * 2 * 10 # Block size
     ), daemon = True)
     
-    saq = corr.correlator(sample_rate = 2.0480e6, integrations = 10)
+    acquire_reader = cbuf.new_reader()
+    track_reader = cbuf.new_reader()
+    track_rx, track_tx = mp.Pipe(duplex = False)
+    
+    acquire_proc = mp.Process(target = acquire.main, args = (
+        cbuf,
+        acquire_reader,
+        track_tx
+    ), daemon = True)
 
+    track_proc = mp.Process(target = tracking.main, args = (
+        cbuf,
+        track_reader,
+        track_rx
+    ), daemon = True)
+
+    sample_proc.start()
+    acquire_proc.start()
+    track_proc.start()
+    
     def sigint_handle(sig, frame):
         sys.exit()
 
-    signal.signal(signal.SIGINT, sigint_handle)
-
-    proc.start()
+    signal.signal(signal.SIGINT, sigint_handle)    
 
     while True:
-        handover = False
-        
-        cbuf.get_lock()
-        
-        try:
-            if cbuf.available() >= (num_bytes * 10):
-                cbuf.read_block(byte_buf2)
-                handover = True
-        except buffer.is_empty_except:
-            print("Empty buffer violation!")
-        finally:
-            cbuf.release_lock()
-
-        if handover:
-            data = byte_buf2.astype(numpy.float64)
-            data = (data - 127.5) / 127.5
-            saq.run(data.view(numpy.complex128))
+        pass

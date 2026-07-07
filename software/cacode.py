@@ -63,7 +63,23 @@ def gold_sequence(prn: int) -> list[int]:
     return chips
     
 satellite_cache = [gold_sequence(x) for x in range(1, 33)]
+
+def sampled_signal(sequence, sample_rate, symbol_rate):
+    # Current length of code in chips
+    t_sample = 1 / sample_rate
+    t_symbol = 1 / (symbol_rate)
+    length = len(sequence)
+    samples = round(length * t_symbol / t_sample)
+    print(samples)
+    code = np.empty(samples)
+    sequence_position = 0
     
+    for i in range(samples):
+        code[i] = sequence[int(sequence_position)]
+        sequence_position += t_sample / t_symbol
+
+    return code
+
 def prn_code(prn: int, shift : float, length : int, sample_rate : float) -> list[int]:
     """
     Generates a desired satellite code with shifting, length and sample rate options.
